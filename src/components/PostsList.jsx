@@ -23,6 +23,7 @@ export default function PostsList({ isTweeting, onStopTweeting }) {
           <NewPost
             onBodyChange={bodyChangeHandler}
             onAuthorChange={authorChangeHandler}
+            onCancel={onStopTweeting}
           />
         </Modal>
       )}
