@@ -1,10 +1,9 @@
-import NewPost from "./NewPost";
-import Post from "./Post";
-import styles from "./PostsList.module.css";
-import Modal from "./Modal";
 import { useEffect, useState } from "react";
 
-export default function PostsList({ isTweeting, onStopTweeting }) {
+import Post from "./Post";
+import styles from "./PostsList.module.css";
+
+export default function PostsList() {
   const [posts, setPosts] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
 
@@ -31,12 +30,6 @@ export default function PostsList({ isTweeting, onStopTweeting }) {
 
   return (
     <>
-      {isTweeting && (
-        <Modal onClose={onStopTweeting}>
-          <NewPost onCancel={onStopTweeting} onAddPost={addPostHandler} />
-        </Modal>
-      )}
-
       {!isFetching && posts.length > 0 && (
         <ul className={styles.posts}>
           {posts.map((post) => (
