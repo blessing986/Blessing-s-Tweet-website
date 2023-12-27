@@ -3,19 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import Post from "./Post";
 import styles from "./PostsList.module.css";
 
-export default function PostsList() {
+function PostsList() {
   const posts = useLoaderData();
-
-  function addPostHandler(postData) {
-    fetch("http://localhost:8080/posts", {
-      method: "POST",
-      body: JSON.stringify(postData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    setPosts((existingPosts) => [postData, ...existingPosts]);
-  }
 
   return (
     <>
@@ -35,3 +24,5 @@ export default function PostsList() {
     </>
   );
 }
+
+export default PostsList;
