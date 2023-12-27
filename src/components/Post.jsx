@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
+
 import styles from "./Post.module.css";
 
-export default function Post(props) {
+export default function Post({ id, author, body }) {
   return (
-    <div className={styles.post}>
-      <p className={styles.author}>{props.author}</p>
-      <p className={styles.text}>{props.body}</p>
-    </div>
+    <li className={styles.post}>
+      <Link to={id}>
+        <p className={styles.author}>{author}</p>
+        <p className={styles.text}>{body}</p>
+      </Link>
+    </li>
   );
 }
